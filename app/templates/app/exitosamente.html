@@ -1,0 +1,16 @@
+{% extends 'app\baseCuenta.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container-fluid justify-content-center">
+  <h1 class="">FELICIDADES!</h1>
+  <h1>COMPRA REALIZADA EXITOSAMENTE</h1>
+  <h2>TU PEDIDO ESTA SIENDO PREPARADO</h2>
+  <a href="{% url 'home_usuario' %}"><button type="button" class="btn btn-success mt-3">Volver Al Menú
+  </button></a>
+</div>
+
+
+{% endblock %}

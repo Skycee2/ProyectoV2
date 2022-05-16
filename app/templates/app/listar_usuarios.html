@@ -1,0 +1,57 @@
+{% extends 'app\baseCuenta.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-condensed table-striped  table-responsive">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>TIPO</th>
+                        <th>TELEFONO</th>
+                        <th>CORREO</th>
+                        <th>DIRECCION</th>
+                        <th>IMAGEN </th>
+                        <th>ESTADO SUB</th>
+                        <th>FECHA DE CREACION</th>
+                        <th>FECHA DE ACTUALIZACION</th>
+                        <th>OPCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aux in listarUsuarios %}
+                    <tr>
+
+                        <td>{{ aux.id_usuario }}</td>
+                        <td>{{ aux.nombre_usuario }}</td>
+                        <td>{{ aux.tipo_usuario }}</td>
+                        <td>{{ aux.telefono_usuario }}</td>
+                        <td>{{ aux.correo_usuario }}</td>
+                        <td>{{ aux.direccion_usuario }}</td>
+                        <td class="item-img">
+                            {% if aux.imagen_usuario %}
+                            <img src="{{ aux.imagen_usuario.url }}" class="" style="width: 100px;">
+                            {% else %}
+                            <img src="{% static 'app/img/alimentoPerro.png' %}" class="">
+                            {% endif %}
+                        </td>
+                        <td>{{ aux.estado_sub }}</td>
+                        <td>{{ aux.created_at }}</td>
+                        <td>{{ aux.updated_at }}</td>
+                        <td>
+                            <a href="{% url 'modificar_usuarios' aux.id_usuario %}"
+                                class="btn btn-success">Modificar</a>
+                            <a href="{% url 'eliminar_usuarios' aux.id_usuario %}" class="btn btn-danger">Eliminar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

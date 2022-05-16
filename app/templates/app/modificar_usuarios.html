@@ -1,0 +1,38 @@
+{% extends 'app\baseCuenta.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 mt-4">
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{ form|crispy }}
+                </table>
+                <input type="submit" class="modificar btn btn-success m-4" value="Modificar">
+                <script>
+                    $('.modificar').on('click', function (e) {
+                        e.preventDefault();
+                        var self = $(this);
+                        console.log(self.data('titulo'));
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Guardado!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    })
+                </script>
+            </form>
+            {{ mensaje }}
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+{% endblock %}

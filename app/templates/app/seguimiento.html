@@ -1,0 +1,59 @@
+{% extends 'app\baseCuenta.html' %}
+{% load static %}
+{% block content %}
+<div class="container-fluid p-5">
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-8 col-lg-4 d-flex flex-column mb-4 ">
+      <form action="/action_page.php">
+        <div>
+          <h4>Consulte por su pedido</h4>
+          <h5>ingrese el numero de seguimiento</h5>
+        </div>
+        <div class="form-group">
+          <label for="codigo">n° seguimiento *:</label>
+          <input type="codigo" class="form-control" placeholder="ejemplo:1234567" id="codigo">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </form>
+    </div>
+    <div class="col-10 col-sm-8 col-lg-5 d-flex justify-content-center">
+      <img class="w-100" src="{% static 'app/img/corgi.jpg' %}" alt="">
+    </div>
+    <div class="col-12 mt-4 d-flex justify-content-center">
+      <section class="lista-seg ">
+        <ul class="">
+          <li class="li-active ">
+            <i class="icon-d fa-solid fa-box"></i>
+            <i class="icon-a fa-solid fa-truck-ramp-box"></i>
+            <div class="active barra-progreso uno">
+              <p>1</p>
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <p class="text">preparando pedido</p>
+          </li>
+          <li class="li-active">
+            <i class="icon-d fa-solid fa-truck-fast"></i>
+            <i class="icon-a fa-solid fa-truck-arrow-right"></i>
+            <div class="active barra-progreso dos">
+              <p>2</p>
+              <i class="fa-solid fa-check"></i>
+            </div>
+            <p class="text">pedido en camino</p>
+          </li>
+          <li class="">
+            <i class="icon-d fa-solid fa-house-flag"></i>
+            <i class="icon-a fa-solid fa-house-circle-check"></i>
+            <div class="barra-progreso tres">
+              <p>3</p>
+              <i class="fa-solid fa-check"></i>
+
+            </div>
+            <p class="text">pedido entregado</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
